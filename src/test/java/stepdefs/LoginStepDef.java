@@ -45,6 +45,9 @@ public class LoginStepDef {
 	@Then("I should land on the home page")
 	public void i_should_land_on_the_home_page() {
 	   
+		String title=driver.getTitle();
+		System.out.println("HomePage Title::" +title );
+		Assert.assertEquals("Swag Labs", title);
 	}
 
 	@When("I enter the incorrect username and password")
