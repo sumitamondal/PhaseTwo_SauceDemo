@@ -100,7 +100,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "This scenario is to define the login happy path",
+  "name": "This scenario is to define the the success path",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -120,11 +120,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I clcik on Login Button",
+  "name": "I click on the Login Button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefs.LoginStepDef.i_clcik_on_Login_Button()"
+  "location": "stepdefs.LoginStepDef.i_click_on_the_Login_Button()"
 });
 formatter.result({
   "status": "passed"
@@ -141,6 +141,47 @@ formatter.result({
 });
 formatter.after({
   "status": "passed"
+});
+formatter.scenarioOutline({
+  "name": "This scenario is to define the failure path",
+  "description": "",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "name": "@sanity"
+    }
+  ]
+});
+formatter.step({
+  "name": "I enter the username as \"\u003cUserName\u003e\" and Password as \"\u003cPassword\u003e\"",
+  "keyword": "When "
+});
+formatter.step({
+  "name": "I click on the Login Button",
+  "keyword": "And "
+});
+formatter.step({
+  "name": "I should get the error message \"Epic sadface: Username and password do not match any user in this service\"",
+  "keyword": "Then "
+});
+formatter.examples({
+  "name": "",
+  "description": "",
+  "keyword": "Examples",
+  "rows": [
+    {
+      "cells": [
+        "UserName",
+        "Password"
+      ]
+    },
+    {
+      "cells": [
+        "abc_xyz",
+        "Abc_efg"
+      ]
+    }
+  ]
 });
 formatter.background({
   "name": "",
@@ -163,7 +204,7 @@ formatter.result({
 formatter.scenario({
   "name": "This scenario is to define the failure path",
   "description": "",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
       "name": "@sanity"
@@ -171,21 +212,21 @@ formatter.scenario({
   ]
 });
 formatter.step({
-  "name": "I enter the incorrect username and password",
+  "name": "I enter the username as \"abc_xyz\" and Password as \"Abc_efg\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "stepdefs.LoginStepDef.i_enter_the_incorrect_username_and_password()"
+  "location": "stepdefs.LoginStepDef.i_enter_the_username_as_and_Password_as(java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I clcik on Login Button",
+  "name": "I click on the Login Button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefs.LoginStepDef.i_clcik_on_Login_Button()"
+  "location": "stepdefs.LoginStepDef.i_click_on_the_Login_Button()"
 });
 formatter.result({
   "status": "passed"

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,7 +36,7 @@ public class LoginStepDef {
 		password.sendKeys("secret_sauce");
 	}
 
-	@When("I clcik on Login Button")
+	@And("I clcik on Login Button")
 	public void i_clcik_on_Login_Button() {
 	   
 		WebElement login =driver.findElement(By.xpath("//input[@name='login-button']"));
@@ -50,16 +51,24 @@ public class LoginStepDef {
 		Assert.assertEquals("Swag Labs", title);
 	}
 
-	@When("I enter the incorrect username and password")
-	public void i_enter_the_incorrect_username_and_password() {
+	@When("I enter the username as {string} and Password as {string}")
+	public void i_enter_the_username_as_and_Password_as(String UserNameVal, String PasswordVal) {
 	   
-		WebElement UserName = driver.findElement(By.xpath("//input[@placeholder='Username']"));
-		UserName.sendKeys("abc_xyz@gmail.com");
+		WebElement UserName= driver.findElement(By.xpath("//input[@placeholder='Username']"));
+		UserName.sendKeys(UserNameVal);
 		
-		WebElement password = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-		password.sendKeys("Abc_efg");
-	}
+		WebElement Password =driver.findElement(By.xpath("//input[@placeholder='Password']"));
+		Password.sendKeys(PasswordVal);
 
+	}
+	
+	@And("I click on the Login Button")
+	public void i_click_on_the_Login_Button() {
+	    
+		WebElement login =driver.findElement(By.xpath("//input[@name='login-button']"));
+		login.click();
+	}
+	
 	@Then("I should get the error message {string}")
 	public void i_should_get_the_error_message(String ExpError) {
 	    
@@ -68,7 +77,9 @@ public class LoginStepDef {
 		Assert.assertEquals(ExpError, ActError);
 	}
 
+	
 
+	
 
 	
 }
