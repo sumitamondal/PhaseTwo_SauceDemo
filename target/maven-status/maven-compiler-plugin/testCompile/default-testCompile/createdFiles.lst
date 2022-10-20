@@ -1,0 +1,5 @@
+stepdefs\TestRunner.class
+stepdefs\Hooks.class
+stepdefs\HomePage2StepDef.class
+stepdefs\LoginStepDef.class
+com\simplilearn\PhaseTwo_SauceDemo\AppTest.class
